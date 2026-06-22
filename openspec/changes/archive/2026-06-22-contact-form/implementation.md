@@ -17,7 +17,7 @@ Replace the placeholder contact form with a production-quality client-side submi
 
 *(Non-testable step — no test framework in project; markup changes verified by browser inspection)*
 
-- [ ] In `src/index.html`, replace the entire `<form>` element (currently at lines 268–291) with the markup below. This adds `id` attributes to all five fields, `aria-describedby` on the four validatable fields (name, email, phone, message), per-field error `<p>` containers, `novalidate` on the form, the honeypot field, and replaces `.form-ok` with two `aria-live` regions (`.form-success` + `.form-error`). The inline `onsubmit` is kept temporarily but retargeted to `.form-success` so the form remains functional until Step 3:
+- [x] In `src/index.html`, replace the entire `<form>` element (currently at lines 268–291) with the markup below. This adds `id` attributes to all five fields, `aria-describedby` on the four validatable fields (name, email, phone, message), per-field error `<p>` containers, `novalidate` on the form, the honeypot field, and replaces `.form-ok` with two `aria-live` regions (`.form-success` + `.form-error`). The inline `onsubmit` is kept temporarily but retargeted to `.form-success` so the form remains functional until Step 3:
 
 ```html
         <form class="form" novalidate onsubmit="event.preventDefault(); this.querySelector('.form-success').hidden = false;">
@@ -55,7 +55,7 @@ Replace the placeholder contact form with a production-quality client-side submi
         </form>
 ```
 
-- [ ] In `src/styles.css`, add the `.hp-field` visually-hidden rule after the `.form-ok` block (after the `}` that closes `.form-ok { … }`) and before the `@media (max-width: 560px)` query for `.form`:
+- [x] In `src/styles.css`, add the `.hp-field` visually-hidden rule after the `.form-ok` block (after the `}` that closes `.form-ok { … }`) and before the `@media (max-width: 560px)` query for `.form`:
 
 ```css
 .hp-field {
@@ -70,12 +70,12 @@ Replace the placeholder contact form with a production-quality client-side submi
 ##### Step 1 Verification Checklist
 
 **Automated (agent runs before stopping):**
-- [ ] `Select-String -Path src\index.html -Pattern 'novalidate'` — expected: 1+ match
-- [ ] `Select-String -Path src\index.html -Pattern 'aria-describedby'` — expected: 4+ matches
-- [ ] `Select-String -Path src\index.html -Pattern 'hp-field'` — expected: 1+ match
-- [ ] `Select-String -Path src\index.html -Pattern 'form-success'` — expected: 2+ matches (class def + onsubmit reference)
-- [ ] `Select-String -Path src\index.html -Pattern 'form-error'` — expected: 1+ match
-- [ ] `Select-String -Path src\styles.css -Pattern '\.hp-field'` — expected: 1+ match
+- [x] `Select-String -Path src\index.html -Pattern 'novalidate'` — expected: 1+ match
+- [x] `Select-String -Path src\index.html -Pattern 'aria-describedby'` — expected: 4+ matches
+- [x] `Select-String -Path src\index.html -Pattern 'hp-field'` — expected: 1+ match
+- [x] `Select-String -Path src\index.html -Pattern 'form-success'` — expected: 2+ matches (class def + onsubmit reference)
+- [x] `Select-String -Path src\index.html -Pattern 'form-error'` — expected: 1+ match
+- [x] `Select-String -Path src\styles.css -Pattern '\.hp-field'` — expected: 1+ match
 
 **Human (verify in browser before committing):**
 - [ ] Open `src/index.html` in a browser — all five visible fields render correctly with labels (Nombre y apellidos, Empresa, Email, Teléfono, ¿Qué necesitas?)
@@ -97,7 +97,7 @@ Replace the placeholder contact form with a production-quality client-side submi
 
 *(Non-testable step — no test framework in project; CSS changes verified by DevTools class toggling)*
 
-- [ ] In `src/styles.css`, add error semantic tokens to the `:root` block. Insert after the `--focus-ring` line and before `--mask`:
+- [x] In `src/styles.css`, add error semantic tokens to the `:root` block. Insert after the `--focus-ring` line and before `--mask`:
 
 ```css
   --error-bg: #fde8e8;
@@ -105,7 +105,7 @@ Replace the placeholder contact form with a production-quality client-side submi
   --error-ring: rgba(192, 57, 43, 0.2);
 ```
 
-- [ ] In `src/styles.css`, add error token dark overrides to the `:root[data-theme="dark"]` block. Insert after the `--focus-ring` line and before the closing `}`:
+- [x] In `src/styles.css`, add error token dark overrides to the `:root[data-theme="dark"]` block. Insert after the `--focus-ring` line and before the closing `}`:
 
 ```css
   --error-bg: #3a1a1a;
@@ -113,7 +113,7 @@ Replace the placeholder contact form with a production-quality client-side submi
   --error-ring: rgba(248, 113, 113, 0.2);
 ```
 
-- [ ] In `src/styles.css`, add error token dark overrides to the `@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { … } }` block. Insert after the `--focus-ring` line and before the closing `}` of the inner rule:
+- [x] In `src/styles.css`, add error token dark overrides to the `@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { … } }` block. Insert after the `--focus-ring` line and before the closing `}` of the inner rule:
 
 ```css
     --error-bg: #3a1a1a;
@@ -121,7 +121,7 @@ Replace the placeholder contact form with a production-quality client-side submi
     --error-ring: rgba(248, 113, 113, 0.2);
 ```
 
-- [ ] In `src/styles.css`, add the state and error CSS rules after the `@media (max-width: 560px) { .form { grid-template-columns: 1fr; } }` line (and after the `.hp-field` rule from Step 1):
+- [x] In `src/styles.css`, add the state and error CSS rules after the `@media (max-width: 560px) { .form { grid-template-columns: 1fr; } }` line (and after the `.hp-field` rule from Step 1):
 
 ```css
 .field-error {
@@ -182,21 +182,21 @@ Replace the placeholder contact form with a production-quality client-side submi
 ##### Step 2 Verification Checklist
 
 **Automated (agent runs before stopping):**
-- [ ] `Select-String -Path src\styles.css -Pattern '\.is-sending'` — expected: 2+ matches (field opacity + btn opacity)
-- [ ] `Select-String -Path src\styles.css -Pattern '\.spinner'` — expected: 1+ match
-- [ ] `Select-String -Path src\styles.css -Pattern '@keyframes spin'` — expected: 1 match
-- [ ] `Select-String -Path src\styles.css -Pattern '\.form-success'` — expected: 1+ match
-- [ ] `Select-String -Path src\styles.css -Pattern '\.form-error'` — expected: 1+ match
-- [ ] `Select-String -Path src\styles.css -Pattern 'error-ink'` — expected: 3+ matches (:root, [data-theme="dark"], @media dark)
+- [x] `Select-String -Path src\styles.css -Pattern '\.is-sending'` — expected: 2+ matches (field opacity + btn opacity)
+- [x] `Select-String -Path src\styles.css -Pattern '\.spinner'` — expected: 1+ match
+- [x] `Select-String -Path src\styles.css -Pattern '@keyframes spin'` — expected: 1 match
+- [x] `Select-String -Path src\styles.css -Pattern '\.form-success'` — expected: 1+ match
+- [x] `Select-String -Path src\styles.css -Pattern '\.form-error'` — expected: 1+ match
+- [x] `Select-String -Path src\styles.css -Pattern 'error-ink'` — expected: 3+ matches (:root, [data-theme="dark"], @media dark)
 
 **Human (verify in browser before committing):**
-- [ ] Open `src/index.html` in a browser, open DevTools, and add class `is-sending` to the `<form>` element — verify field inputs/textarea get `opacity: 0.6` and the submit button gets `opacity: 0.7`
-- [ ] With `is-sending` on the form, inject `<span class="spinner"></span>` into the button's innerHTML via DevTools — verify the spinner renders (animated rotating border circle, colored with `--accent`)
-- [ ] Add `aria-invalid="true"` to one of the inputs via DevTools — verify the input border turns red (`--error-ink`)
-- [ ] Remove the `hidden` attribute from the `.form-success` element via DevTools — verify it shows a green background/text box (`--ok-bg` / `--ok-ink`)
-- [ ] Remove the `hidden` attribute from the `.form-error` element via DevTools — verify it shows a red background/text box (`--error-bg` / `--error-ink`)
-- [ ] Confirm no layout breakage in the contact section — the form grid still renders correctly with two columns on desktop and one column on narrow viewports
-- [ ] Toggle dark mode (via the theme toggle or OS preference) and re-verify the error styles render with the dark palette (lighter red text on dark red background)
+- [x] Open `src/index.html` in a browser, open DevTools, and add class `is-sending` to the `<form>` element — verify field inputs/textarea get `opacity: 0.6` and the submit button gets `opacity: 0.7`
+- [x] With `is-sending` on the form, inject `<span class="spinner"></span>` into the button's innerHTML via DevTools — verify the spinner renders (animated rotating border circle, colored with `--accent`)
+- [x] Add `aria-invalid="true"` to one of the inputs via DevTools — verify the input border turns red (`--error-ink`)
+- [x] Remove the `hidden` attribute from the `.form-success` element via DevTools — verify it shows a green background/text box (`--ok-bg` / `--ok-ink`)
+- [x] Remove the `hidden` attribute from the `.form-error` element via DevTools — verify it shows a red background/text box (`--error-bg` / `--error-ink`)
+- [x] Confirm no layout breakage in the contact section — the form grid still renders correctly with two columns on desktop and one column on narrow viewports
+- [x] Toggle dark mode (via the theme toggle or OS preference) and re-verify the error styles render with the dark palette (lighter red text on dark red background)
 
 #### Step 2 STOP & COMMIT
 
@@ -210,7 +210,7 @@ Replace the placeholder contact form with a production-quality client-side submi
 
 *(Non-testable step — no test framework in project; JS behavior verified by manual browser testing)*
 
-- [ ] In `src/script.js`, append the contact form submission module to the end of the file (after the existing theme toggle code). This code follows the project's top-level globals pattern (`const`/`function` declarations, `var` inside callbacks, `addEventListener`, no IIFE, no ES modules):
+- [x] In `src/script.js`, append the contact form submission module to the end of the file (after the existing theme toggle code). This code follows the project's top-level globals pattern (`const`/`function` declarations, `var` inside callbacks, `addEventListener`, no IIFE, no ES modules):
 
 ```js
 // Contact form
@@ -321,7 +321,7 @@ if (contactForm) {
 }
 ```
 
-- [ ] In `src/index.html`, remove the `onsubmit="event.preventDefault(); this.querySelector('.form-success').hidden = false;"` attribute from the `<form>` element. The `<form>` opening tag should become exactly:
+- [x] In `src/index.html`, remove the `onsubmit="event.preventDefault(); this.querySelector('.form-success').hidden = false;"` attribute from the `<form>` element. The `<form>` opening tag should become exactly:
 
 ```html
         <form class="form" novalidate>
@@ -330,10 +330,10 @@ if (contactForm) {
 ##### Step 3 Verification Checklist
 
 **Automated (agent runs before stopping):**
-- [ ] `node --check src\script.js` — expected: exit 0 (no syntax errors)
-- [ ] `Select-String -Path src\script.js -Pattern 'simulateSubmit'` — expected: 2+ matches (definition + call)
-- [ ] `Select-String -Path src\script.js -Pattern "addEventListener\('submit'"` — expected: 1 match
-- [ ] `if (Select-String -Quiet -Path src\index.html -Pattern 'onsubmit') { 'FAIL: onsubmit still present' } else { 'PASS: onsubmit removed' }` — expected: PASS
+- [x] `node --check src\script.js` — expected: exit 0 (no syntax errors)
+- [x] `Select-String -Path src\script.js -Pattern 'simulateSubmit'` — expected: 2+ matches (definition + call)
+- [x] `Select-String -Path src\script.js -Pattern "addEventListener\('submit'"` — expected: 1 match
+- [x] `if (Select-String -Quiet -Path src\index.html -Pattern 'onsubmit') { 'FAIL: onsubmit still present' } else { 'PASS: onsubmit removed' }` — expected: PASS
 
 **Human (verify in browser before committing):**
 - [ ] Open `src/index.html` in a browser. Submit an empty form — expect validation errors on name, email, and message ("Este campo es obligatorio"), focus moves to the first invalid field (name), and `aria-invalid="true"` is set on each invalid input
