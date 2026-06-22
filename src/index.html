@@ -265,29 +265,38 @@
             </li>
           </ul>
         </div>
-        <form class="form" onsubmit="event.preventDefault(); this.querySelector('.form-ok').hidden = false;">
+        <form class="form" novalidate>
           <label class="field">
             <span>Nombre y apellidos</span>
-            <input type="text" name="name" required />
+            <input type="text" id="name" name="name" required aria-describedby="name-error" />
+            <p class="field-error" id="name-error" hidden></p>
           </label>
           <label class="field">
             <span>Empresa</span>
-            <input type="text" name="company" />
+            <input type="text" id="company" name="company" />
           </label>
           <label class="field">
             <span>Email</span>
-            <input type="email" name="email" required />
+            <input type="email" id="email" name="email" required aria-describedby="email-error" />
+            <p class="field-error" id="email-error" hidden></p>
           </label>
           <label class="field">
             <span>Teléfono</span>
-            <input type="tel" name="phone" />
+            <input type="tel" id="phone" name="phone" aria-describedby="phone-error" />
+            <p class="field-error" id="phone-error" hidden></p>
           </label>
           <label class="field field-full">
             <span>¿Qué necesitas?</span>
-            <textarea name="message" rows="4" required></textarea>
+            <textarea id="message" name="message" rows="4" required aria-describedby="message-error"></textarea>
+            <p class="field-error" id="message-error" hidden></p>
+          </label>
+          <label class="field hp-field">
+            <span>Sitio web</span>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
           </label>
           <button type="submit" class="btn btn-primary btn-full">Enviar mensaje</button>
-          <p class="form-ok" hidden>¡Gracias! Te responderemos en menos de 24h.</p>
+          <p class="form-success" aria-live="polite" hidden>¡Gracias! Te responderemos en menos de 24h.</p>
+          <p class="form-error" aria-live="assertive" hidden></p>
         </form>
       </div>
     </section>
