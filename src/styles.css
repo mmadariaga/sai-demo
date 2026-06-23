@@ -865,3 +865,52 @@ a { color: inherit; text-decoration: none; }
     margin-left: auto;
   }
 }
+
+/* ---------- Cookie consent banner ---------- */
+.cookie-consent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -4px 20px var(--overlay);
+  padding: 16px 0;
+}
+.cookie-consent-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.cookie-consent p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+.cookie-consent-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+body.has-consent-banner {
+  padding-bottom: 80px;
+}
+@media (max-width: 480px) {
+  .cookie-consent-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .cookie-consent-actions {
+    width: 100%;
+    justify-content: center;
+  }
+  body.has-consent-banner {
+    padding-bottom: 140px;
+  }
+}

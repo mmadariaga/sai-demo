@@ -1,5 +1,85 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Cookie consent
+const CONSENT_KEY = 'cookie-consent';
+const CONSENT_EXPIRY_MS = 365 * 24 * 60 * 60 * 1000; // 12 months
+
+function getConsentStatus() {
+  try {
+    var raw = localStorage.getItem(CONSENT_KEY);
+    if (!raw) return 'none';
+    var record = JSON.parse(raw);
+    if (!record || typeof record !== 'object') return 'none';
+    if (!record.choice || !record.timestamp) return 'none';
+    var ts = new Date(record.timestamp).getTime();
+    if (isNaN(ts) || Date.now() - ts > CONSENT_EXPIRY_MS) return 'none';
+    return record.choice === 'accepted' || record.choice === 'rejected' ? record.choice : 'none';
+  } catch (e) {
+    return 'none';
+  }
+}
+
+function showBanner() {
+  var banner = document.getElementById('cookieConsent');
+  if (!banner) return;
+  banner.hidden = false;
+  document.body.classList.add('has-consent-banner');
+  var acceptBtn = document.getElementById('cookieConsentAccept');
+  if (acceptBtn) acceptBtn.focus();
+  banner.addEventListener('keydown', trapFocus);
+}
+
+function hideBanner() {
+  var banner = document.getElementById('cookieConsent');
+  if (!banner) return;
+  banner.hidden = true;
+  document.body.classList.remove('has-consent-banner');
+  banner.removeEventListener('keydown', trapFocus);
+}
+
+function trapFocus(e) {
+  var acceptBtn = document.getElementById('cookieConsentAccept');
+  var rejectBtn = document.getElementById('cookieConsentReject');
+  if (!acceptBtn || !rejectBtn) return;
+  if (e.key !== 'Tab') return;
+  if (e.shiftKey) {
+    if (document.activeElement === acceptBtn) {
+      e.preventDefault();
+      rejectBtn.focus();
+    }
+  } else {
+    if (document.activeElement === rejectBtn) {
+      e.preventDefault();
+      acceptBtn.focus();
+    }
+  }
+}
+
+function writeConsent(choice) {
+  try {
+    var record = { choice: choice, timestamp: new Date().toISOString(), version: 1 };
+    localStorage.setItem(CONSENT_KEY, JSON.stringify(record));
+  } catch (e) {}
+}
+
+var consentAcceptBtn = document.getElementById('cookieConsentAccept');
+var consentRejectBtn = document.getElementById('cookieConsentReject');
+if (consentAcceptBtn) {
+  consentAcceptBtn.addEventListener('click', function() {
+    writeConsent('accepted');
+    hideBanner();
+  });
+}
+if (consentRejectBtn) {
+  consentRejectBtn.addEventListener('click', function() {
+    writeConsent('rejected');
+    hideBanner();
+  });
+}
+if (getConsentStatus() === 'none') {
+  showBanner();
+}
+
 const toggle = document.getElementById('navToggle');
 const header = document.querySelector('.site-header');
 if (toggle) {
@@ -118,6 +198,10 @@ if (contactForm) {
 
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
+    if (getConsentStatus() !== 'accepted') {
+      showBanner();
+      return;
+    }
     errorMsg.hidden = true;
     successMsg.hidden = true;
 
