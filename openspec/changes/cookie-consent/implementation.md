@@ -17,7 +17,7 @@ Add a GDPR-compliant cookie consent banner with Accept/Reject actions, localStor
 
 *(Non-testable step — standard format, no RED/GREEN needed because the banner is hidden by default and not yet observable in the app)*
 
-- [ ] Insert the following banner block immediately before the closing `</body>` tag in `src/index.html` (after the `<script src="script.js"></script>` line):
+- [x] Insert the following banner block immediately before the closing `</body>` tag in `src/index.html` (after the `<script src="script.js"></script>` line):
 
 ```html
 <div class="cookie-consent" id="cookieConsent" role="dialog" aria-modal="true" aria-label="Consentimiento de cookies" hidden>
@@ -34,15 +34,15 @@ Add a GDPR-compliant cookie consent banner with Accept/Reject actions, localStor
 ##### Step 1 Verification Checklist
 
 **Automated (agent runs before stopping):**
-- [ ] `src/index.html` contains the banner markup with `id="cookieConsent"`, `role="dialog"`, `aria-modal="true"`, and `aria-label="Consentimiento de cookies"`
-- [ ] The banner element has the `hidden` attribute
-- [ ] The Accept button has `id="cookieConsentAccept"` and text "Aceptar"
-- [ ] The Reject button has `id="cookieConsentReject"` and text "Rechazar"
-- [ ] The banner is placed as the last element inside `<body>`
+- [x] `src/index.html` contains the banner markup with `id="cookieConsent"`, `role="dialog"`, `aria-modal="true"`, and `aria-label="Consentimiento de cookies"`
+- [x] The banner element has the `hidden` attribute
+- [x] The Accept button has `id="cookieConsentAccept"` and text "Aceptar"
+- [x] The Reject button has `id="cookieConsentReject"` and text "Rechazar"
+- [x] The banner is placed as the last element inside `<body>`
 
 **Human (verify in browser before committing):**
-- [ ] Load the page — the banner is not visible
-- [ ] Open DevTools Elements panel — the banner DOM node exists with correct ARIA attributes and button labels
+- [x] Load the page — the banner is not visible
+- [x] Open DevTools Elements panel — the banner DOM node exists with correct ARIA attributes and button labels
 
 #### Step 1 STOP & COMMIT
 
@@ -56,7 +56,7 @@ Add a GDPR-compliant cookie consent banner with Accept/Reject actions, localStor
 
 *(Non-testable step — standard format, no RED/GREEN needed because this is CSS-only styling)*
 
-- [ ] Append the following styles to the end of `src/styles.css`:
+- [x] Append the following styles to the end of `src/styles.css`:
 
 ```css
 /* ---------- Cookie consent banner ---------- */
@@ -112,11 +112,11 @@ body.has-consent-banner {
 ##### Step 2 Verification Checklist
 
 **Automated (agent runs before stopping):**
-- [ ] `src/styles.css` contains `.cookie-consent` with `position: fixed`, `bottom: 0`, `width: 100%`, `z-index: 100`
-- [ ] `src/styles.css` contains `body.has-consent-banner` with `padding-bottom: 80px`
-- [ ] `.cookie-consent` uses existing custom properties (`--surface`, `--line`, `--overlay`, `--ink-2`, `--maxw`)
-- [ ] Responsive breakpoint at `max-width: 480px` stacks `.cookie-consent-inner` vertically and increases `body.has-consent-banner` padding to `140px`
-- [ ] Button styles are not redefined — only `.btn`, `.btn-primary`, `.btn-ghost` are reused
+- [x] `src/styles.css` contains `.cookie-consent` with `position: fixed`, `bottom: 0`, `width: 100%`, `z-index: 100`
+- [x] `src/styles.css` contains `body.has-consent-banner` with `padding-bottom: 80px`
+- [x] `.cookie-consent` uses existing custom properties (`--surface`, `--line`, `--overlay`, `--ink-2`, `--maxw`)
+- [x] Responsive breakpoint at `max-width: 480px` stacks `.cookie-consent-inner` vertically and increases `body.has-consent-banner` padding to `140px`
+- [x] Button styles are not redefined — only `.btn`, `.btn-primary`, `.btn-ghost` are reused
 
 **Human (verify in browser before committing):**
 *(Deferred to Step 3 where the banner is first shown)*
@@ -133,7 +133,7 @@ body.has-consent-banner {
 
 *(Non-testable step — standard format, no RED/GREEN because the project has no test runner infrastructure)*
 
-- [ ] Insert the following consent logic block at the top of `src/script.js`, immediately after `document.getElementById('year').textContent = new Date().getFullYear();` and before the nav toggle code:
+- [x] Insert the following consent logic block at the top of `src/script.js`, immediately after `document.getElementById('year').textContent = new Date().getFullYear();` and before the nav toggle code:
 
 ```javascript
 // Cookie consent
@@ -220,30 +220,30 @@ if (getConsentStatus() === 'none') {
 ##### Step 3 Verification Checklist
 
 **Automated (agent runs before stopping):**
-- [ ] `src/script.js` defines `getConsentStatus()`, `showBanner()`, `hideBanner()`, `trapFocus()`, and `writeConsent()`
-- [ ] `CONSENT_KEY` is set to `'cookie-consent'` and `CONSENT_EXPIRY_MS` equals 12 months
-- [ ] `localStorage` access is wrapped in `try/catch` in both `getConsentStatus()` and `writeConsent()`
-- [ ] The consent record JSON structure includes `choice`, `timestamp` (ISO 8601), and `version: 1`
-- [ ] `showBanner()` removes `hidden`, adds `has-consent-banner` class to `<body>`, focuses the Accept button, and attaches `trapFocus`
-- [ ] `hideBanner()` restores `hidden`, removes the body class, and detaches `trapFocus`
-- [ ] Page-load initialization calls `getConsentStatus() === 'none'` and conditionally calls `showBanner()`
+- [x] `src/script.js` defines `getConsentStatus()`, `showBanner()`, `hideBanner()`, `trapFocus()`, and `writeConsent()`
+- [x] `CONSENT_KEY` is set to `'cookie-consent'` and `CONSENT_EXPIRY_MS` equals 12 months
+- [x] `localStorage` access is wrapped in `try/catch` in both `getConsentStatus()` and `writeConsent()`
+- [x] The consent record JSON structure includes `choice`, `timestamp` (ISO 8601), and `version: 1`
+- [x] `showBanner()` removes `hidden`, adds `has-consent-banner` class to `<body>`, focuses the Accept button, and attaches `trapFocus`
+- [x] `hideBanner()` restores `hidden`, removes the body class, and detaches `trapFocus`
+- [x] Page-load initialization calls `getConsentStatus() === 'none'` and conditionally calls `showBanner()`
 
 **Human (verify in browser before committing):**
 
 *Deferred from Step 2 (Banner styles):*
-- [ ] Temporarily remove the `hidden` attribute from the banner in DevTools — verify fixed bottom positioning, full width, correct theme colors in both light and dark modes, responsive vertical stacking at ≤480px, and that `body.has-consent-banner` padding prevents permanent content occlusion
+- [x] Temporarily remove the `hidden` attribute from the banner in DevTools — verify fixed bottom positioning, full width, correct theme colors in both light and dark modes, responsive vertical stacking at ≤480px, and that `body.has-consent-banner` padding prevents permanent content occlusion
 
 *Step 3:*
-- [ ] Clear `localStorage` and reload — banner appears at bottom of viewport
-- [ ] When banner appears, focus is on the "Aceptar" button
-- [ ] Press Tab — focus cycles between "Aceptar" and "Rechazar" without leaving the banner
-- [ ] Press Shift+Tab — focus cycles in reverse
-- [ ] Press Enter or Space on a focused button — triggers the corresponding action
-- [ ] Click "Aceptar" — banner hides, `localStorage` contains JSON record with `choice: "accepted"`, valid ISO `timestamp`, and `version: 1`
-- [ ] Reload page — banner does not appear
-- [ ] Clear `localStorage`, reload, click "Rechazar" — banner hides, `localStorage` contains `choice: "rejected"`
-- [ ] Reload page — banner does not appear
-- [ ] Manually expire the record (edit `localStorage` timestamp to 13 months ago) — banner reappears on reload
+- [x] Clear `localStorage` and reload — banner appears at bottom of viewport
+- [x] When banner appears, focus is on the "Aceptar" button
+- [x] Press Tab — focus cycles between "Aceptar" and "Rechazar" without leaving the banner
+- [x] Press Shift+Tab — focus cycles in reverse
+- [x] Press Enter or Space on a focused button — triggers the corresponding action
+- [x] Click "Aceptar" — banner hides, `localStorage` contains JSON record with `choice: "accepted"`, valid ISO `timestamp`, and `version: 1`
+- [x] Reload page — banner does not appear
+- [x] Clear `localStorage`, reload, click "Rechazar" — banner hides, `localStorage` contains `choice: "rejected"`
+- [x] Reload page — banner does not appear
+- [x] Manually expire the record (edit `localStorage` timestamp to 13 months ago) — banner reappears on reload
 
 #### Step 3 STOP & COMMIT
 
@@ -257,7 +257,7 @@ if (getConsentStatus() === 'none') {
 
 *(Non-testable step — standard format, no RED/GREEN because the project has no test runner infrastructure)*
 
-- [ ] Modify the contact form submit handler in `src/script.js` to add the consent gate as the first check after `e.preventDefault()`:
+- [x] Modify the contact form submit handler in `src/script.js` to add the consent gate as the first check after `e.preventDefault()`:
 
 Replace:
 ```javascript
@@ -282,16 +282,16 @@ With:
 ##### Step 4 Verification Checklist
 
 **Automated (agent runs before stopping):**
-- [ ] `src/script.js` contact form submit handler calls `getConsentStatus()` immediately after `e.preventDefault()`
-- [ ] If `getConsentStatus() !== 'accepted'`, the handler calls `showBanner()` and returns early
-- [ ] The existing honeypot check, validation loop, `simulateSubmit()`, `showSuccess()`, and `showError()` logic remain intact after the gate
+- [x] `src/script.js` contact form submit handler calls `getConsentStatus()` immediately after `e.preventDefault()`
+- [x] If `getConsentStatus() !== 'accepted'`, the handler calls `showBanner()` and returns early
+- [x] The existing honeypot check, validation loop, `simulateSubmit()`, `showSuccess()`, and `showError()` logic remain intact after the gate
 
 **Human (verify in browser before committing):**
-- [ ] With no consent record, fill the form with valid data and submit — banner appears, no validation errors shown, no success/error state
-- [ ] With "rejected" consent, submit the form — banner appears, form does not submit
-- [ ] With "accepted" consent, submit the form with valid data — form proceeds normally (validation, honeypot, simulated send, success message)
-- [ ] With "accepted" consent, submit with empty required fields — validation errors appear as before
-- [ ] Fill the honeypot field with no consent record and submit — banner appears (not success message), proving gate runs before honeypot check
+- [x] With no consent record, fill the form with valid data and submit — banner appears, no validation errors shown, no success/error state
+- [x] With "rejected" consent, submit the form — banner appears, form does not submit
+- [x] With "accepted" consent, submit the form with valid data — form proceeds normally (validation, honeypot, simulated send, success message)
+- [x] With "accepted" consent, submit with empty required fields — validation errors appear as before
+- [x] Fill the honeypot field with no consent record and submit — banner appears (not success message), proving gate runs before honeypot check
 
 #### Step 4 STOP & COMMIT
 
