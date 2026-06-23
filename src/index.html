@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Galdakao Frigoríficos — Fabricantes de frigoríficos industriales y comerciales en Galdakao, Bizkaia. Calidad, eficiencia y servicio desde 1985." />
+  <title>Galdakao Frigoríficos — Fabricantes en Bizkaia</title>
+  <script>
+    (function() {
+      var theme;
+      try { theme = localStorage.getItem('theme'); } catch (e) {}
+      if (!theme) {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="inicio">
+    <div class="container nav">
+      <a href="#inicio" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="3" width="20" height="26" rx="3" />
+            <line x1="6" y1="13" x2="26" y2="13" />
+            <line x1="11" y1="8" x2="11" y2="11" />
+            <line x1="11" y1="17" x2="11" y2="24" />
+          </svg>
+        </span>
+        <span class="brand-name">Galdakao <span class="brand-accent">Frigoríficos</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre-nosotros">Nosotros</a>
+        <a href="#productos">Productos</a>
+        <a href="#por-que">¿Por qué nosotros?</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a class="btn btn-primary nav-cta" href="#contacto">Solicitar presupuesto</a>
+      <button class="theme-toggle" type="button" aria-label="Cambiar tema" aria-pressed="false">
+        <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+      </button>
+      <button class="nav-toggle" aria-label="Abrir menú" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">Fabricantes en Galdakao · Bizkaia</span>
+          <h1>Frío industrial que <span class="text-accent">funciona</span>. Desde 1985.</h1>
+          <p class="lead">Diseñamos y fabricamos frigoríficos, congeladores y cámaras de frío a medida para industria, hostelería y comercio. Fabricación 100% local en el corazón de Bizkaia.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#productos">Ver productos</a>
+            <a class="btn btn-ghost" href="#contacto">Hablar con un técnico →</a>
+          </div>
+          <ul class="hero-stats" role="list">
+            <li><strong>38+</strong><span>años de experiencia</span></li>
+            <li><strong>1.200+</strong><span>instalaciones activas</span></li>
+            <li><strong>24/7</strong><span>servicio técnico</span></li>
+          </ul>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="cube">
+            <div class="cube-face cube-front">
+              <div class="fridge">
+                <div class="fridge-handle"></div>
+                <div class="fridge-divider"></div>
+                <div class="fridge-handle fridge-handle-lower"></div>
+              </div>
+            </div>
+            <div class="cube-face cube-side"></div>
+            <div class="cube-face cube-top"></div>
+            <span class="snow snow-1">❄</span>
+            <span class="snow snow-2">❄</span>
+            <span class="snow snow-3">❄</span>
+            <span class="snow snow-4">✻</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="logos">
+      <div class="container">
+        <p class="logos-label">Confían en nosotros</p>
+        <div class="logos-row">
+          <span> Eroski</span>
+          <span>•</span>
+          <span>Carrefour</span>
+          <span>•</span>
+          <span>Mercadona</span>
+          <span>•</span>
+          <span>Restaurantes Bizkaia</span>
+          <span>•</span>
+          <span>Hospital de Cruces</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre-nosotros">
+      <div class="container two-col">
+        <div>
+          <span class="eyebrow">Sobre nosotros</span>
+          <h2 class="section-title">Tres décadas fabricando frío en Bizkaia</h2>
+          <p>Somos una empresa familiar fundada en 1985 en Galdakao. Empezamos reparando neveras en un taller de 40 m² y hoy contamos con una planta de fabricación de 3.500 m² en el polígono de Aperribai, con un equipo de 45 personas entre ingenieros, técnicos y operarios.</p>
+          <p>Diseñamos cada equipo a medida, lo fabricamos en nuestras instalaciones y lo instalamos con nuestro propio servicio técnico. Sin intermediarios, sin sorpresas.</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature">
+            <div class="feature-icon" aria-hidden="true">🏭</div>
+            <h3>Fabricación propia</h3>
+            <p>Diseñamos y ensamblamos en Galdakao. Cero reventa, control total de calidad.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon" aria-hidden="true">🔧</div>
+            <h3>Servicio técnico propio</h3>
+            <p>Equipo de técnicos en plantilla, sin subcontratas. Cobertura en toda Bizkaia y Gipuzkoa.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon" aria-hidden="true">📐</div>
+            <h3>A medida</h3>
+            <p>Estudiamos cada proyecto y fabricamos el equipo que se adapta a tu espacio y necesidad.</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon" aria-hidden="true">🌱</div>
+            <h3>Eficiencia energética</h3>
+            <p>Gases refrigerantes de bajo GWP y compresores inverter que reducen el consumo hasta un 40%.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="productos">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Productos</span>
+          <h2 class="section-title">Nuestra gama</h2>
+          <p class="section-sub">Equipos estándar y proyectos a medida para cualquier necesidad de frío.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-img card-img-1" aria-hidden="true"></div>
+            <div class="card-body">
+              <h3>Cámaras frigoríficas</h3>
+              <p>Cámaras modulares para conservación (0–8 °C) y congelación (–18 a –25 °C) para industria alimentaria, logística y restauración.</p>
+              <ul class="card-tags">
+                <li>Modulares</li>
+                <li>Insonorizadas</li>
+                <li>ATEX</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img card-img-2" aria-hidden="true"></div>
+            <div class="card-body">
+              <h3>Frigoríficos comerciales</h3>
+              <p>Vitrinas, murales, armarios y mesas frigoríficas para tiendas de alimentación, supermercados, hostelería y cocina profesional.</p>
+              <ul class="card-tags">
+                <li>Acero inox</li>
+                <li>Clase A</li>
+                <li>GN 1/1 – 2/1</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img card-img-3" aria-hidden="true"></div>
+            <div class="card-body">
+              <h3>Frigoríficos industriales</h3>
+              <p>Equipos de gran capacidad para industria cárnica, pesquera, farmacéutica y química. Salas blancas, túneles de congelación rápida y abatidores.</p>
+              <ul class="card-tags">
+                <li>Hasta –40 °C</li>
+                <li>Industria</li>
+                <li>Proyectos llave en mano</li>
+              </ul>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-img card-img-4" aria-hidden="true"></div>
+            <div class="card-body">
+              <h3>Mueble a medida</h3>
+              <p>Diseño, cálculo térmico y fabricación de mobiliario refrigerado para espacios singulares. Te lo entregamos instalado y certificado.</p>
+              <ul class="card-tags">
+                <li>Diseño 3D</li>
+                <li>Instalación</li>
+                <li>Garantía 5 años</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="por-que">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">¿Por qué nosotros?</span>
+          <h2 class="section-title">Lo que nos diferencia</h2>
+        </div>
+        <div class="benefits">
+          <div class="benefit">
+            <div class="benefit-num">01</div>
+            <h3>Cerca de ti</h3>
+            <p>Estamos en Galdakao, a 15 minutos de Bilbao. Visitamos tu negocio sin coste para tomar medidas y asesorarte.</p>
+          </div>
+          <div class="benefit">
+            <div class="benefit-num">02</div>
+            <h3>Plazos reales</h3>
+            <p>Fabricamos en casa, sin depender de stock externo. Te decimos cuándo lo tendrás y cumplimos.</p>
+          </div>
+          <div class="benefit">
+            <div class="benefit-num">03</div>
+            <h3>Repuestos siempre</h3>
+            <p>Mantenemos stock de componentes de los equipos vendidos durante 15 años. Si se rompe, tenemos la pieza.</p>
+          </div>
+          <div class="benefit">
+            <div class="benefit-num">04</div>
+            <h3>Garantía ampliada</h3>
+            <p>5 años en estructura y 3 años en componentes. Contratos de mantenimiento opcionales con respuesta en menos de 4h.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-inner">
+        <div>
+          <h2>¿Tienes un proyecto entre manos?</h2>
+          <p>Pídenos presupuesto sin compromiso. Te respondemos en menos de 24 horas.</p>
+        </div>
+        <a class="btn btn-primary btn-lg" href="#contacto">Solicitar presupuesto</a>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="container two-col">
+        <div>
+          <span class="eyebrow">Contacto</span>
+          <h2 class="section-title">Hablemos</h2>
+          <p>Estamos en el polígono industrial de Aperribai, a 5 minutos de la salida de Galdakao de la AP-8.</p>
+          <ul class="contact-list" role="list">
+            <li>
+              <span class="contact-label">Dirección</span>
+              <span>Polígono Aperribai, Nave 14<br />48960 Galdakao, Bizkaia</span>
+            </li>
+            <li>
+              <span class="contact-label">Teléfono</span>
+              <a href="tel:+34944000000">+34 944 00 00 00</a>
+            </li>
+            <li>
+              <span class="contact-label">Email</span>
+              <a href="mailto:info@galdakaofrigorificos.eus">info@galdakaofrigorificos.eus</a>
+            </li>
+            <li>
+              <span class="contact-label">Horario</span>
+              <span>Lun–Vie: 8:00 – 18:00<br />Urgencias 24/7 para clientes con contrato</span>
+            </li>
+          </ul>
+        </div>
+        <form class="form" onsubmit="event.preventDefault(); this.querySelector('.form-ok').hidden = false;">
+          <label class="field">
+            <span>Nombre y apellidos</span>
+            <input type="text" name="name" required />
+          </label>
+          <label class="field">
+            <span>Empresa</span>
+            <input type="text" name="company" />
+          </label>
+          <label class="field">
+            <span>Email</span>
+            <input type="email" name="email" required />
+          </label>
+          <label class="field">
+            <span>Teléfono</span>
+            <input type="tel" name="phone" />
+          </label>
+          <label class="field field-full">
+            <span>¿Qué necesitas?</span>
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary btn-full">Enviar mensaje</button>
+          <p class="form-ok" hidden>¡Gracias! Te responderemos en menos de 24h.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="3" width="20" height="26" rx="3" />
+              <line x1="6" y1="13" x2="26" y2="13" />
+              <line x1="11" y1="8" x2="11" y2="11" />
+              <line x1="11" y1="17" x2="11" y2="24" />
+            </svg>
+          </span>
+          <span>Galdakao <span class="brand-accent">Frigoríficos</span></span>
+        </span>
+        <p>Fabricantes de frío industrial y comercial desde 1985.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h4>Empresa</h4>
+          <a href="#sobre-nosotros">Sobre nosotros</a>
+          <a href="#productos">Productos</a>
+          <a href="#por-que">Por qué nosotros</a>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <a href="tel:+34944000000">+34 944 00 00 00</a>
+          <a href="mailto:info@galdakaofrigorificos.eus">info@galdakaofrigorificos.eus</a>
+          <span>Pol. Aperribai, Galdakao</span>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> Galdakao Frigoríficos S.L. — Todos los derechos reservados.</span>
+      <span>Hecho con ❄ en Bizkaia</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
